@@ -86,7 +86,7 @@ Console.Clear();
 // which characters (name only) appear in Mario and Donkey Kong?
 //foreach(String? name in characters.Where(c => c.Series.Contains("Donkey Kong") && c.Series.Contains("Mario")).Select(c => c.Name))
 //{
-  //Console.WriteLine($"\t{name}");
+//Console.WriteLine($"\t{name}");
 //}
 // how many characters appear in Donkey Kong and not in Mario?
 //int DkNotMarioCount = characters.Where(c => c.Series.Contains("Donkey Kong") && !c.Series.Contains("Mario")).Count();
@@ -95,11 +95,15 @@ Console.Clear();
 
 
 // which character(s) has/have the most alias's?
-foreach(var obj in characters.Where(c => c.Alias.Count() == characters.Max(c => c.Alias.Count())).Select(c => new {c.Name, c.Alias})){
-  Console.WriteLine($"{obj.Name} has {obj.Alias.Count()} alias(s):\n\t{String.Join(", ", obj.Alias)}");
-}
+// foreach (var obj in characters.Where(c => c.Alias.Count() == characters.Max(c => c.Alias.Count())).Select(c => new { c.Name, c.Alias }))
+// {
+//     Console.WriteLine($"{obj.Name} has {obj.Alias.Count()} alias(s):\n\t{String.Join(", ", obj.Alias)}");
+// }
 
 
+// how many letters make up the longest character name(s)
+int LengthOfName = characters.Max(c => c.Name!.Length);
+Console.WriteLine($"There are {characters.Max(c => c.Name!.Length)} letters in the longest character's name");
 
 
 
