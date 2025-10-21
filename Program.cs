@@ -59,12 +59,15 @@ Console.WriteLine($"How many? {characters.Count(c => c.YearCreated == 1995)}");
 //foreach (String? name in characters.Where(c => c.YearCreated == 1995).Select(c => c.Name))
 // which characters were created in 1995 (name & description only)
 //foreach (var obj in characters.Where(c => c.YearCreated == 1995).Select(c => new { c.Name, c.Description }))
-foreach(var obj in characters.Where(c => c.YearCreated == 1995).Select(c => new { c.Name, c.Description }).OrderBy(c => c.Name))
+//foreach(var obj in characters.Where(c => c.YearCreated == 1995).Select(c => new { c.Name, c.Description }).OrderBy(c => c.Name))
+foreach (CharacterDTO characterDTO in characters.Where(c => c.YearCreated == 1995).Select(c => new CharacterDTO { Id = c.Id, Name = c.Name, Series = c.Series }).OrderBy(c => c.Name))
+
 {
     //Console.WriteLine(character.Display());
     //Console.WriteLine(character.Name);
     //Console.WriteLine(name);
-    Console.WriteLine($"{obj.Name} - {obj.Description}");
+    // Console.WriteLine($"{obj.Name} - {obj.Description}");
+    Console.WriteLine(characterDTO.Display());
 }
 
 
